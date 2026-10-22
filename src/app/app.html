@@ -1,0 +1,26 @@
+<app-guitarras />
+
+<main class="escena">
+  <article class="tarjeta" aria-labelledby="nombre">
+    <span class="cinta cinta-izq" aria-hidden="true"></span>
+    <span class="cinta cinta-der" aria-hidden="true"></span>
+
+    <header class="franela" aria-hidden="true"></header>
+
+    <p class="etiqueta">// carta de presentacion</p>
+
+    <h1 id="nombre" class="nombre">
+      <span class="nombre-principal" [attr.data-text]="dante.nombre">{{ dante.nombre }}</span>
+      <span class="apellidos">{{ dante.apellidos }}</span>
+    </h1>
+
+    <hr class="rasgado" />
+
+    <p class="mensaje" [attr.aria-label]="dante.mensaje">
+      <span aria-hidden="true">{{ mensaje() }}</span
+      ><span class="cursor" [class.parpadea]="!escribiendo()" aria-hidden="true">_</span>
+    </p>
+
+    <footer class="sello" aria-hidden="true">★ grunge ★</footer>
+  </article>
+</main>
