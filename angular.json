@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "dante-presentacion": {
+    "migracion-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -33,13 +33,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "15kB",
+                  "maximumError": "30kB"
                 }
               ],
               "outputHashing": "all"
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dante-presentacion:build:production"
+              "buildTarget": "migracion-angular:build:production"
             },
             "development": {
-              "buildTarget": "dante-presentacion:build:development"
+              "buildTarget": "migracion-angular:build:development"
             }
           },
           "defaultConfiguration": "development"

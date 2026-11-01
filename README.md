@@ -1,34 +1,35 @@
 # Migración Angular - Cartas de Presentación del Equipo
 
-Repositorio colaborativo para la migración y presentación de perfiles en Angular 21.
+Repositorio colaborativo que integra las cartas de presentación en Angular 21 del equipo:
 
-## Integrantes y Presentaciones
+## Integrantes del Equipo
 
-### 🎸 Dante Kaleb Rodríguez Flores
-- **Estilo:** Grunge alternativo con máquina de escribir y guitarras flotantes.
-- **Archivos:** `src/app/dante.ts`, `src/app/guitarras/`, `public/fondo.jpg`.
-
-### 💻 Joseph Asiel García Guerrero
-- **Estilo:** Glassmorphism moderno con Angular Signals y tabs informativos.
-- **Rama origen:** `joseph`.
+1. 🎸 **Dante Kaleb Rodríguez Flores** (`origin/Dante`)
+   - Estilo grunge alternativo con máquina de escribir y guitarras animadas.
+2. 🌸 **Berakhah Efratah Lara Pérez** (`origin/Bera-lara`)
+   - Estilo gamer pastel interactivo con estadísticas y badges de creatividad.
+3. 💻 **Joseph Asiel García Guerrero** (`origin/joseph`)
+   - Estilo Glassmorphism moderno con Angular Signals, tabs dinámicos y métricas.
+4. 🎵 **Alexis López ("El mai")** (`origin/Alexis`)
+   - Estilo musical con vinil giratorio.
+5. 🖤 **Ivette Valdés** (`origin/ivett`)
+   - Estilo terminal de código Mac con Kuromi.
 
 ---
 
-## Requisitos y Uso
-
-- Node.js 20.19+, 22.12+ o 24+
+## Ejecución del Proyecto
 
 ```bash
-# Instalar dependencias
-npm install
+# 1. Instalar dependencias
+npm install --legacy-peer-deps
 
-# Iniciar servidor local
+# 2. Iniciar servidor de desarrollo
 npm start
 ```
 
-Abre `http://localhost:4200/`.
+La aplicación se ejecuta en `http://localhost:4200/` con una barra de navegación superior que permite explorar y alternar entre las diferentes cartas de presentación del equipo.
 
-## Build
+## Compilación
 ```bash
 npm run build
 ```

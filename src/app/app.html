@@ -1,26 +1,50 @@
-<app-guitarras />
+<div class="app-viewport">
+  <!-- Barra de navegacion del equipo para seleccionar presentacion -->
+  <header class="team-nav-bar">
+    <div class="team-badge">
+      <span class="team-dot"></span>
+      <span class="team-title">Equipo Angular</span>
+    </div>
 
-<main class="escena">
-  <article class="tarjeta" aria-labelledby="nombre">
-    <span class="cinta cinta-izq" aria-hidden="true"></span>
-    <span class="cinta cinta-der" aria-hidden="true"></span>
+    <nav class="nav-pills" aria-label="Seleccionar tarjeta">
+      <button 
+        type="button" 
+        class="nav-pill" 
+        [class.active]="perfilActivo() === 'dante'"
+        (click)="seleccionarPerfil('dante')">
+        🎸 Dante
+      </button>
 
-    <header class="franela" aria-hidden="true"></header>
+      <button 
+        type="button" 
+        class="nav-pill" 
+        [class.active]="perfilActivo() === 'bera'"
+        (click)="seleccionarPerfil('bera')">
+        🌸 Bera
+      </button>
 
-    <p class="etiqueta">// carta de presentacion</p>
+      <button 
+        type="button" 
+        class="nav-pill" 
+        [class.active]="perfilActivo() === 'joseph'"
+        (click)="seleccionarPerfil('joseph')">
+        💼 Joseph
+      </button>
+    </nav>
+  </header>
 
-    <h1 id="nombre" class="nombre">
-      <span class="nombre-principal" [attr.data-text]="dante.nombre">{{ dante.nombre }}</span>
-      <span class="apellidos">{{ dante.apellidos }}</span>
-    </h1>
-
-    <hr class="rasgado" />
-
-    <p class="mensaje" [attr.aria-label]="dante.mensaje">
-      <span aria-hidden="true">{{ mensaje() }}</span
-      ><span class="cursor" [class.parpadea]="!escribiendo()" aria-hidden="true">_</span>
-    </p>
-
-    <footer class="sello" aria-hidden="true">★ grunge ★</footer>
-  </article>
-</main>
+  <!-- Contenedor dinamico de tarjetas -->
+  <main class="card-display-area">
+    @switch (perfilActivo()) {
+      @case ('dante') {
+        <app-carta-dante />
+      }
+      @case ('bera') {
+        <app-carta-bera />
+      }
+      @case ('joseph') {
+        <app-carta-presentacion />
+      }
+    }
+  </main>
+</div>

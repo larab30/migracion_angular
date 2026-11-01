@@ -1,6 +1,6 @@
 {
-  "name": "dante-presentacion",
-  "version": "0.0.0",
+  "name": "migracion-angular-equipo",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,6 @@
     "test": "ng test"
   },
   "private": true,
-  "packageManager": "npm@11.6.1",
   "dependencies": {
     "@angular/common": "^21.2.0",
     "@angular/compiler": "^21.2.0",
