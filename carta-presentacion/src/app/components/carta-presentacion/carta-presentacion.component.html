@@ -1,0 +1,214 @@
+<div class="card-wrapper">
+  <!-- Glowing background elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <article class="presentation-card">
+    <!-- Header banner -->
+    <header class="card-banner">
+      <div class="banner-gradient"></div>
+      <div class="status-badge">
+        <span class="status-pulse"></span>
+        <span class="status-text">Disponible para colaborar</span>
+      </div>
+      <button 
+        type="button" 
+        class="like-btn" 
+        [class.liked]="hasLiked()" 
+        (click)="giveLike()"
+        title="Apoyar perfil">
+        <span class="heart-icon">{{ hasLiked() ? '❤️' : '🤍' }}</span>
+        <span class="likes-count">{{ likes() }}</span>
+      </button>
+    </header>
+
+    <!-- Profile identity section -->
+    <section class="profile-header">
+      <div class="avatar-container">
+        <div class="avatar-ring">
+          <div class="avatar-inner">
+            <span class="avatar-initials">JG</span>
+          </div>
+        </div>
+        <div class="role-chip">DEV</div>
+      </div>
+
+      <div class="profile-meta">
+        <h1 class="dev-name">{{ nombre }}</h1>
+        <div class="role-badge">
+          <span class="sparkle">✨</span>
+          <span class="role-title">{{ puesto }}</span>
+        </div>
+        <p class="tagline">{{ tagLine }}</p>
+
+        <div class="quick-tags">
+          <span class="quick-tag">
+            <span class="icon">📍</span> {{ ubicacion }}
+          </span>
+          <span class="quick-tag">
+            <span class="icon">⚡</span> Angular Standalone
+          </span>
+          <span class="quick-tag">
+            <span class="icon">🚀</span> Proactivo & Autodidacta
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="card-tabs" aria-label="Secciones de la carta">
+      <button 
+        type="button"
+        class="tab-btn" 
+        [class.active]="activeTab() === 'sobre-mi'" 
+        (click)="setTab('sobre-mi')">
+        <span class="tab-icon">👤</span> Sobre Mí
+      </button>
+      <button 
+        type="button"
+        class="tab-btn" 
+        [class.active]="activeTab() === 'skills'" 
+        (click)="setTab('skills')">
+        <span class="tab-icon">⚡</span> Habilidades
+      </button>
+      <button 
+        type="button"
+        class="tab-btn" 
+        [class.active]="activeTab() === 'proyectos'" 
+        (click)="setTab('proyectos')">
+        <span class="tab-icon">💼</span> Proyectos
+      </button>
+      <button 
+        type="button"
+        class="tab-btn" 
+        [class.active]="activeTab() === 'contacto'" 
+        (click)="setTab('contacto')">
+        <span class="tab-icon">📬</span> Contacto
+      </button>
+    </nav>
+
+    <!-- Tab Contents -->
+    <main class="card-body">
+      <!-- TAB 1: SOBRE MÍ -->
+      @if (activeTab() === 'sobre-mi') {
+        <div class="tab-panel fade-in">
+          <h2 class="section-title">Perfil Profesional</h2>
+          <p class="bio-text">
+            ¡Hola! Soy <strong>{{ nombre }}</strong>, desarrollador frontend en constante aprendizaje y evolución. 
+            Me enfoco en construir aplicaciones web dinámicas, estructuradas y con interfaces limpias utilizando el ecosistema de <strong>Angular</strong> y <strong>TypeScript</strong>.
+          </p>
+
+          <div class="highlights-grid">
+            <div class="highlight-box">
+              <span class="highlight-number">01</span>
+              <div>
+                <h3 class="highlight-title">Código Limpio</h3>
+                <p class="highlight-desc">Estructuración modular de componentes, directivas y servicios en Angular.</p>
+              </div>
+            </div>
+            <div class="highlight-box">
+              <span class="highlight-number">02</span>
+              <div>
+                <h3 class="highlight-title">Trabajo en Equipo</h3>
+                <p class="highlight-desc">Manejo de flujo de trabajo colaborativo con Git, ramas y GitHub.</p>
+              </div>
+            </div>
+            <div class="highlight-box">
+              <span class="highlight-number">03</span>
+              <div>
+                <h3 class="highlight-title">Mentalidad de Crecimiento</h3>
+                <p class="highlight-desc">Capacidad rápida de adaptación e investigación continua de nuevas tecnologías.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- TAB 2: HABILIDADES -->
+      @if (activeTab() === 'skills') {
+        <div class="tab-panel fade-in">
+          <h2 class="section-title">Stack Técnico & Competencias</h2>
+          <div class="skills-grid">
+            @for (skill of skills; track skill.name) {
+              <div class="skill-card" [attr.data-category]="skill.category">
+                <div class="skill-header">
+                  <span class="skill-emoji">{{ skill.icon }}</span>
+                  <span class="skill-name">{{ skill.name }}</span>
+                </div>
+                <span class="skill-level-badge">{{ skill.level }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- TAB 3: PROYECTOS -->
+      @if (activeTab() === 'proyectos') {
+        <div class="tab-panel fade-in">
+          <h2 class="section-title">Iniciativas & Colaboraciones</h2>
+          <div class="projects-list">
+            @for (project of projects; track project.title) {
+              <div class="project-card">
+                <div class="project-info">
+                  <h3 class="project-title">{{ project.title }}</h3>
+                  <p class="project-desc">{{ project.description }}</p>
+                  <div class="project-tags">
+                    @for (tag of project.tags; track tag) {
+                      <span class="tech-tag">{{ tag }}</span>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- TAB 4: CONTACTO -->
+      @if (activeTab() === 'contacto') {
+        <div class="tab-panel fade-in">
+          <h2 class="section-title">Conectemos</h2>
+          <p class="contact-intro">
+            ¿Interesado en colaborar o sumarme a un equipo de desarrollo? Puedes contactarme directamente:
+          </p>
+
+          <div class="contact-actions">
+            <div class="email-box">
+              <div class="email-details">
+                <span class="label">Correo Electrónico:</span>
+                <span class="value">{{ email }}</span>
+              </div>
+              <button 
+                type="button" 
+                class="copy-btn" 
+                [class.copied]="copied()" 
+                (click)="copyEmail()">
+                {{ copied() ? '✓ ¡Copiado!' : '📋 Copiar' }}
+              </button>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/Asiel091307" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <span class="social-icon">🐙</span> GitHub
+              </a>
+              <button type="button" class="social-btn" (click)="setTab('sobre-mi')">
+                <span class="social-icon">📄</span> Ver Resumen
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </main>
+
+    <!-- Card Footer -->
+    <footer class="card-footer">
+      <div class="footer-left">
+        <span class="footer-dot"></span>
+        <span>Rama: <strong>joseph</strong></span>
+      </div>
+      <div class="footer-right">
+        <span>Angular 21 • TypeScript</span>
+      </div>
+    </footer>
+  </article>
+</div>

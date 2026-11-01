@@ -1,19 +1,19 @@
 # Migración Angular - Cartas de Presentación del Equipo
 
-Repositorio colaborativo que integra las cartas de presentación en Angular 21 del equipo:
+Repositorio colaborativo que integra las cartas de presentación en Angular 21 de todo el equipo en una vitrina unificada con selector interactivo.
 
 ## Integrantes del Equipo
 
-1. 🎸 **Dante Kaleb Rodríguez Flores** (`origin/Dante`)
+1. 💻 **Joseph Asiel García Guerrero** (`origin/joseph`)
+   - Estilo Glassmorphism moderno con Angular Signals, tabs dinámicos y métricas profesionales.
+2. 🎸 **Dante Kaleb Rodríguez Flores** (`origin/Dante`)
    - Estilo grunge alternativo con máquina de escribir y guitarras animadas.
-2. 🌸 **Berakhah Efratah Lara Pérez** (`origin/Bera-lara`)
+3. 🌸 **Berakhah Efratah Lara Pérez** (`origin/Bera-lara`)
    - Estilo gamer pastel interactivo con estadísticas y badges de creatividad.
-3. 💻 **Joseph Asiel García Guerrero** (`origin/joseph`)
-   - Estilo Glassmorphism moderno con Angular Signals, tabs dinámicos y métricas.
 4. 🎵 **Alexis López ("El mai")** (`origin/Alexis`)
-   - Estilo musical con vinil giratorio.
+   - Estilo musical con vinil giratorio y canciones destacadas.
 5. 🖤 **Ivette Valdés** (`origin/ivett`)
-   - Estilo terminal de código Mac con Kuromi.
+   - Estilo ventana de código Mac con Kuromi y datos de contacto.
 
 ---
 
@@ -27,9 +27,13 @@ npm install --legacy-peer-deps
 npm start
 ```
 
-La aplicación se ejecuta en `http://localhost:4200/` con una barra de navegación superior que permite explorar y alternar entre las diferentes cartas de presentación del equipo.
+La aplicación se ejecuta en `http://localhost:4200/` con una barra superior para navegar entre las presentaciones de cada integrante.
 
-## Compilación
+## Compilación y Pruebas
 ```bash
+# Compilación para producción
 npm run build
+
+# Pruebas unitarias
+npm test
 ```
