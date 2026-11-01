@@ -1,0 +1,15 @@
+@for (g of guitarras; track $index) {
+  <span
+    class="guitarra"
+    aria-hidden="true"
+    [style.top]="g.top"
+    [style.left]="g.left"
+    [style.right]="g.right"
+    [style.font-size]="g.size"
+    [style.animation-duration]="g.duration"
+    [style.animation-delay]="g.delay"
+    [style.--angle]="g.angle + 'deg'"
+    [style.--flip]="g.flip ? -1 : 1"
+    >🎸</span
+  >
+}
