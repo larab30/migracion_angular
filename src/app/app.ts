@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { CartaDanteComponent } from './components/carta-dante/carta-dante.component';
 import { CartaBeraComponent } from './components/carta-bera/carta-bera.component';
 import { CartaPresentacionComponent } from './components/carta-joseph/carta-presentacion.component';
+import { CartaAlexisComponent } from './components/carta-alexis/carta-alexis.component';
+import { CartaIvettComponent } from './components/carta-ivett/carta-ivett.component';
+
+type Perfil = 'joseph' | 'dante' | 'bera' | 'alexis' | 'ivett';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +15,17 @@ import { CartaPresentacionComponent } from './components/carta-joseph/carta-pres
     CommonModule,
     CartaDanteComponent,
     CartaBeraComponent,
-    CartaPresentacionComponent
+    CartaPresentacionComponent,
+    CartaAlexisComponent,
+    CartaIvettComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  readonly perfilActivo = signal<'dante' | 'bera' | 'joseph'>('joseph');
+  readonly perfilActivo = signal<Perfil>('joseph');
 
-  seleccionarPerfil(perfil: 'dante' | 'bera' | 'joseph') {
+  seleccionarPerfil(perfil: Perfil) {
     this.perfilActivo.set(perfil);
   }
 }

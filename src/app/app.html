@@ -10,6 +10,14 @@
       <button 
         type="button" 
         class="nav-pill" 
+        [class.active]="perfilActivo() === 'joseph'"
+        (click)="seleccionarPerfil('joseph')">
+        💼 Joseph
+      </button>
+
+      <button 
+        type="button" 
+        class="nav-pill" 
         [class.active]="perfilActivo() === 'dante'"
         (click)="seleccionarPerfil('dante')">
         🎸 Dante
@@ -26,9 +34,17 @@
       <button 
         type="button" 
         class="nav-pill" 
-        [class.active]="perfilActivo() === 'joseph'"
-        (click)="seleccionarPerfil('joseph')">
-        💼 Joseph
+        [class.active]="perfilActivo() === 'alexis'"
+        (click)="seleccionarPerfil('alexis')">
+        🎵 Alexis
+      </button>
+
+      <button 
+        type="button" 
+        class="nav-pill" 
+        [class.active]="perfilActivo() === 'ivett'"
+        (click)="seleccionarPerfil('ivett')">
+        🖤 Ivett
       </button>
     </nav>
   </header>
@@ -36,14 +52,20 @@
   <!-- Contenedor dinamico de tarjetas -->
   <main class="card-display-area">
     @switch (perfilActivo()) {
+      @case ('joseph') {
+        <app-carta-presentacion />
+      }
       @case ('dante') {
         <app-carta-dante />
       }
       @case ('bera') {
         <app-carta-bera />
       }
-      @case ('joseph') {
-        <app-carta-presentacion />
+      @case ('alexis') {
+        <app-carta-alexis />
+      }
+      @case ('ivett') {
+        <app-carta-ivett />
       }
     }
   </main>
